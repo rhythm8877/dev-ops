@@ -1,0 +1,41 @@
+{
+  "name": "dev-ops-task-manager",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A task management application built with React and Vite, showcasing DevOps best practices",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "jest --config jest.config.cjs",
+    "test:watch": "jest --watch --config jest.config.cjs",
+    "test:coverage": "jest --coverage --config jest.config.cjs",
+    "test:e2e": "npx playwright test",
+    "lint": "eslint src/ --ext .js,.jsx",
+    "lint:fix": "eslint src/ --ext .js,.jsx --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,css,md}\""
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.2",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "@babel/preset-env": "^7.23.8",
+    "@babel/preset-react": "^7.23.3",
+    "babel-jest": "^29.7.0",
+    "identity-obj-proxy": "^3.0.0",
+    "prettier": "^3.2.4",
+    "vite": "^5.0.12",
+    "@playwright/test": "^1.41.1"
+  }
+}
