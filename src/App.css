@@ -300,3 +300,30 @@ body {
   font-size: 0.85rem;
   margin-bottom: 16px;
 }
+
+/* Animations & Micro-interactions */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-item {
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.add-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.task-form:focus-within .add-btn:not(:disabled) {
+  box-shadow: 0 2px 12px rgba(102, 126, 234, 0.25);
+}
