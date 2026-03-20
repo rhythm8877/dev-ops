@@ -3,8 +3,7 @@
  * Handles all HTTP requests to the backend API
  */
 
-const API_BASE_URL =
-  import.meta?.env?.VITE_API_URL || 'https://jsonplaceholder.typicode.com';
+const API_BASE_URL = 'https://jsonplaceholder.typicode.com';
 
 /**
  * Fetches all tasks (todos) from the API

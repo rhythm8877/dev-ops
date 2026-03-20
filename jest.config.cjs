@@ -9,6 +9,7 @@ module.exports = {
   transformIgnorePatterns: ['/node_modules/'],
   testMatch: ['**/src/**/__tests__/**/*.(test|spec).(js|jsx)', '**/src/**/*.(test|spec).(js|jsx)'],
   testPathIgnorePatterns: ['/node_modules/', '/e2e/'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom'],
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',
     '!src/main.jsx',

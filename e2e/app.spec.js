@@ -8,6 +8,28 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Task Manager E2E', () => {
   test.beforeEach(async ({ page }) => {
+    // Mock the API response to return an empty array
+    await page.route('**/todos?_limit=10', route => {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify([]),
+      });
+    });
+    
+    // intercept /todos/* for POST/PATCH/DELETE
+    await page.route('**/todos*', route => {
+      if (route.request().method() !== 'GET') {
+        route.fulfill({
+          status: 200,
+          contentType: 'application/json',
+          body: JSON.stringify({ id: Date.now() }),
+        });
+      } else {
+        route.fallback();
+      }
+    });
+
     await page.goto('/');
   });
 
