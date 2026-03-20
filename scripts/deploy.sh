@@ -3,6 +3,9 @@
 # Can be run multiple times without side effects
 # Usage: bash scripts/deploy.sh
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 set -e
 
 echo "=== Running Idempotent Deploy Script ==="
@@ -16,9 +19,8 @@ mkdir -p "$APP_DIR"
 mkdir -p "$APP_DIR/dist"
 mkdir -p "$APP_DIR/logs"
 
-# Build the application
-echo "Building application..."
-npm run build
+# Application is pre-built via GitHub actions
+echo "Using pre-built artifacts..."
 
 # Stop the existing process if running (idempotent - won't fail if not running)
 echo "Stopping existing application..."
