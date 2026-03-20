@@ -1,19 +1,17 @@
 module.exports = {
   testEnvironment: 'jsdom',
-  transform: {
-    '^.+\\.jsx?$': 'babel-jest',
-  },
-  moduleFileExtensions: ['js', 'jsx', 'json'],
-  setupFilesAfterSetup: ['@testing-library/jest-dom'],
   moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': '<rootDir>/src/__mocks__/styleMock.js',
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
-  testMatch: [
-    '<rootDir>/src/__tests__/**/*.test.{js,jsx}',
-  ],
+  transform: {
+    '^.+\\.(js|jsx)$': 'babel-jest',
+  },
+  transformIgnorePatterns: ['/node_modules/'],
+  testMatch: ['**/src/**/__tests__/**/*.(test|spec).(js|jsx)', '**/src/**/*.(test|spec).(js|jsx)'],
+  testPathIgnorePatterns: ['/node_modules/', '/e2e/'],
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',
     '!src/main.jsx',
-    '!src/__tests__/**',
+    '!src/**/*.test.{js,jsx}',
   ],
 };
