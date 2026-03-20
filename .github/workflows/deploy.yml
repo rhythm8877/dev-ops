@@ -32,6 +32,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
+            cat /etc/os-release
             mkdir -p /home/ubuntu/app
             rm -rf /home/ubuntu/app/dist
             mkdir -p /home/ubuntu/app/logs
