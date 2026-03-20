@@ -23,7 +23,9 @@ describe('App Component', () => {
     await act(async () => {
       render(<App />);
     });
-    expect(screen.getByPlaceholderText('Add a new task...')).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText('Add a new task...')
+    ).toBeInTheDocument();
     expect(screen.getByText('Add Task')).toBeInTheDocument();
   });
 
@@ -31,9 +33,9 @@ describe('App Component', () => {
     await act(async () => {
       render(<App />);
     });
-    const filterButtons = screen.getAllByRole('button').filter(btn =>
-      btn.classList.contains('filter-btn')
-    );
+    const filterButtons = screen
+      .getAllByRole('button')
+      .filter((btn) => btn.classList.contains('filter-btn'));
     expect(filterButtons.length).toBe(3);
   });
 
@@ -57,9 +59,9 @@ describe('App Component', () => {
     const addButton = screen.getByText('Add Task');
     fireEvent.click(addButton);
     // No error should occur
-    const filterButtons = screen.getAllByRole('button').filter(btn =>
-      btn.classList.contains('filter-btn')
-    );
+    const filterButtons = screen
+      .getAllByRole('button')
+      .filter((btn) => btn.classList.contains('filter-btn'));
     expect(filterButtons.length).toBe(3);
   });
 

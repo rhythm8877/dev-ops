@@ -12,13 +12,18 @@ describe('Integration Tests', () => {
   });
 
   test('adding a task updates the task list', async () => {
-    const newTask = { id: 1, title: 'Test Task', description: 'Test Description', completed: false };
+    const newTask = {
+      id: 1,
+      title: 'Test Task',
+      description: 'Test Description',
+      completed: false,
+    };
     api.createTask.mockResolvedValue(newTask);
 
     render(<App />);
-    
+
     const titleInput = screen.getByPlaceholderText(/Add a new task/i);
-    
+
     fireEvent.change(titleInput, { target: { value: 'Test Task' } });
     fireEvent.click(screen.getByText(/add task/i));
 
@@ -28,7 +33,12 @@ describe('Integration Tests', () => {
   });
 
   test('toggling task completion status', async () => {
-    const task = { id: 1, title: 'Existing Task', description: 'Desc', completed: false };
+    const task = {
+      id: 1,
+      title: 'Existing Task',
+      description: 'Desc',
+      completed: false,
+    };
     api.fetchTasks.mockResolvedValue([task]);
     api.updateTask.mockResolvedValue({ ...task, completed: true });
 
@@ -40,7 +50,12 @@ describe('Integration Tests', () => {
   });
 
   test('deleting a task removes it from the list', async () => {
-    const task = { id: 1, title: 'Task to Delete', description: 'Will be removed', completed: false };
+    const task = {
+      id: 1,
+      title: 'Task to Delete',
+      description: 'Will be removed',
+      completed: false,
+    };
     api.fetchTasks.mockResolvedValue([task]);
     api.deleteTask.mockResolvedValue();
 
