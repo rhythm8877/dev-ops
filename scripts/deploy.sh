@@ -38,8 +38,8 @@ else
 fi
 
 # Create a simple server script if it doesn't exist (idempotent)
-if [ ! -f "$APP_DIR/server.js" ]; then
-    cat > "$APP_DIR/server.js" << 'EOF'
+if [ ! -f "$APP_DIR/server.cjs" ]; then
+    cat > "$APP_DIR/server.cjs" << 'EOF'
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -91,7 +91,7 @@ fi
 
 # Start the application with pm2 (idempotent - pm2 manages process)
 echo "Starting application with pm2..."
-pm2 start "$APP_DIR/server.js" --name "$SERVICE_NAME" --update-env
+pm2 start "$APP_DIR/server.cjs" --name "$SERVICE_NAME" --update-env
 
 # Save pm2 process list (idempotent)
 pm2 save
