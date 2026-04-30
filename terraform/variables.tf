@@ -15,3 +15,27 @@ variable "environment" {
   type        = string
   default     = "dev"
 }
+
+variable "ecr_repository_name" {
+  description = "Name of the ECR repository for the app container image"
+  type        = string
+  default     = "devops-task-manager"
+}
+
+variable "app_name" {
+  description = "Application name used as prefix for ECS/ALB resources"
+  type        = string
+  default     = "devops-task-manager"
+}
+
+variable "container_port" {
+  description = "Port the container listens on (matches EXPOSE in Dockerfile)"
+  type        = number
+  default     = 8080
+}
+
+variable "desired_count" {
+  description = "Number of ECS task replicas"
+  type        = number
+  default     = 1
+}
