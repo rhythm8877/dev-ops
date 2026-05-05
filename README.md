@@ -217,4 +217,4 @@ dev-ops/
 
 ## Author
 
-**Rhythm Jain** — [GitHub](https://github.com/rhythm8877)
+
