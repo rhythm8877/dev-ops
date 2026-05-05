@@ -33,3 +33,11 @@ playwright-report/
 
 # Project rubrics (internal reference only)
 Project rubrics for DevOps.md
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+crash.log
+crash.*.log
